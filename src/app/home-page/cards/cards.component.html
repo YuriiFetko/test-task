@@ -1,1 +1,17 @@
-<p>cards works!</p>
+<div>
+  <mat-form-field appearance="fill">
+    <input matInput type="search" placeholder="Search" (input)="search($event)" class="search-input">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
+<div class="test" *ngIf="cards$ | async as cards; else loader">
+  <div *ngFor="let card of cards | cardSearch: searchText">
+    <app-card [card]="card"></app-card>
+  </div>
+</div>
+
+<ng-template #loader>
+  <mat-spinner></mat-spinner>
+</ng-template>
+
+

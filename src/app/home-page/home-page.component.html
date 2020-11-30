@@ -1,1 +1,11 @@
-<p>home-page works!</p>
+<mat-toolbar color="primary">
+  <h2>Test task</h2>
+  <button mat-icon-button (click)="logout($event)" aria-label="logout">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="wrap">
+  <router-outlet></router-outlet>
+</div>
+

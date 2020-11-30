@@ -1,1 +1,4 @@
-<p>card works!</p>
+<mat-card>
+  <mat-card-title [routerLink]="['/home-page', card.id]">{{card.title}}</mat-card-title>
+  <mat-card-content [innerHTML]="card.body">{{card.body}}</mat-card-content>
+</mat-card>

@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Card} from '../../../shared/interfaces';
+import {from, Observable} from 'rxjs';
+import {DataService} from '../../../shared/data.service';
+import {filter, pluck} from 'rxjs/operators';
 
 @Component({
   selector: 'app-card-page',
@@ -7,9 +12,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardPageComponent implements OnInit {
 
-  constructor() { }
+  public paramsId!: any;
+
+  constructor(private activatedRoute: ActivatedRoute,
+              private dataService: DataService) {
+  }
 
   ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe(params => {
+      // @ts-ignore
+      this.paramsId = +params.params.id;
+    });
   }
 
 }
