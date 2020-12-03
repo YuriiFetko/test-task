@@ -16,8 +16,7 @@ export class DataService {
   public getData(): Observable<Card[]> {
     return this.http.get<any>(`/api/rest.php/knowledge-objects?page=1&count=10&filter[type]=knowledge_base&action=search`, {
       headers: {
-        'Content-Type': 'application/json;charset=UTF-8',
-        Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI0MDY1IiwicmlkIjoiMyIsImJpZCI6IjJjMWZjOTRhLTUwMmItNDkwOC05NGMzLTZmOTRmY2MyNmY4MyIsImF1ZCI6Imh0dHBzOlwvXC9zYW5kYm94LmRhdmludG9vLmNvbSIsInJlZiI6IjE5NS4xMjMuMTAuNDIiLCJleHAiOjE2MDY3NDM5MzcsIm5iZiI6MTYwNjc0MDMwN30.C-G0xoqms7bF9qLGURLtAvHUIJNfrudaS-5MNwwTZpE'
+        'Content-Type': 'application/json;charset=UTF-8'
       }
     })
       .pipe(

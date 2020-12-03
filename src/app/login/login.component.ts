@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
       this.form.reset();
       this.router.navigate(['/home-page']);
     }, (errorResponse: HttpErrorResponse) => {
-      this.errorMessage = errorResponse.error;
+      this.errorMessage = errorResponse.error.error;
       this.submitted = false;
       this.form.reset({email: user.email});
     });

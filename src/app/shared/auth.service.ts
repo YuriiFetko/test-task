@@ -1,10 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {AuthResponse, User} from './interfaces';
-import {Observable, throwError} from 'rxjs';
+import {Observable, Subject, throwError} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
 
   constructor(private http: HttpClient) {
@@ -41,10 +43,14 @@ export class AuthService {
     return !!this.token;
   }
 
+
   // tslint:disable-next-line:typedef
   private handleError(error: HttpErrorResponse) {
-    const message = error.error;
-    console.log(message);
+    const message = error.message;
+
+    if (message) {
+      console.log(message);
+    }
     return throwError(error);
   }
 
